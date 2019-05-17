@@ -12,11 +12,34 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Person = /** @class */ (function () {
-    // constructor overloading not allowed.
+    /**
+     private firstName: string;
+     private lastName: string;
+ 
+     // constructor overloading not allowed.
+     constructor(firstName: string, lastName: string) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+     }
+     */
+    // short way of creating members and constructor accepting them
     function Person(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    //getters and setters
+    Person.prototype.getFirstName = function () {
+        return this.firstName;
+    };
+    Person.prototype.setFirstName = function (firstName) {
+        this.firstName = firstName;
+    };
+    Person.prototype.getLastName = function () {
+        return this.lastName;
+    };
+    Person.prototype.setLastName = function (lastName) {
+        this.lastName = lastName;
+    };
     // methods
     Person.prototype.getFullName = function () {
         return this.firstName + " " + this.lastName;
@@ -38,7 +61,7 @@ var Programmer = /** @class */ (function (_super) {
     }
     // overriding the getFullName of Person
     Programmer.prototype.getFullName = function () {
-        return "Programmer " + this.firstName + " " + this.lastName;
+        return "Programmer " + this.getFirstName() + " " + this.getLastName();
     };
     // refering parent's method
     Programmer.prototype.greetLikeANormalPerson = function () {
