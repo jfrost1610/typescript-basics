@@ -1,0 +1,6 @@
+Jobin Thomas	waffle iron	80	2
+Jobin Thomas	keyboard	150	1
+Jobin Thomas	mangoes	80	5
+Jack Frost	icicles	50	4
+Jack Frost	glasses	13	10
+Jack Frost	watch	190	1
