@@ -1,11 +1,35 @@
 class Person {
 
-    firstName: string;
-    lastName: string;
+    /** 
+     private firstName: string;
+     private lastName: string;
+ 
+     // constructor overloading not allowed.
+     constructor(firstName: string, lastName: string) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+     } 
+     */
 
-    // constructor overloading not allowed.
-    constructor(firstName: string, lastName: string) {
+    // short way of creating members and constructor accepting them
+    constructor(private firstName: string, private lastName: string) {
+
+    }
+
+    //getters and setters
+    getFirstName() {
+        return this.firstName;
+    }
+
+    setFirstName(firstName: string) {
         this.firstName = firstName;
+    }
+
+    getLastName() {
+        return this.lastName;
+    }
+
+    setLastName(lastName: string) {
         this.lastName = lastName;
     }
 
@@ -29,7 +53,7 @@ class Programmer extends Person {
 
     // overriding the getFullName of Person
     getFullName(): string {
-        return "Programmer " + this.firstName + " " + this.lastName;
+        return "Programmer " + this.getFirstName() + " " + this.getLastName();
     }
 
     // refering parent's method
