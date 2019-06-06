@@ -1,0 +1,44 @@
+<div>
+  User Name:<input type="text" [(ngModel)]="userName">
+  <button (click)="search()">Search</button>
+  <div *ngIf="response">
+    <p>Name : {{response.name}}</p>
+    <p>Login : {{response.login}}</p>
+    <p>Followers : {{response.followers}}</p>
+    <p>Repos : {{response.public_repos}}</p>
+    <p>Gists : {{response.public_gists}}</p>
+  </div>
+</div>
+
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-view-component',
+  templateUrl: './view-component.component.html',
+  styleUrls: ['./view-component.component.css']
+})
+export class ViewComponentComponent implements OnInit {
+
+  userName: string = "";
+  response: any;
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit() {
+  }
+
+  search() {
+    this.http.get('https://api.github.com/users/' + this.userName)
+      .subscribe((response) => {
+        this.response = response;
+        console.log(this.response);
+      });
+  }
+
+}
